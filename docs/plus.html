@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plus | Comics Downloader</title>
+    <meta name="description" content="Comics Downloader Plus: a Cloud Library for the chapters you download and your settings on every browser, encrypted in your browser. 1.50 USD a month after a 30-day trial." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#151819" />
+    <link rel="canonical" href="https://n3uralcreativity.top/comics-downloader/plus.html" />
+    <link rel="icon" type="image/png" href="assets/icon128.png" />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-in">
+        <a class="brand" href="./"><img src="assets/icon48.png" alt="" width="26" height="26" />Comics Downloader</a>
+        <nav aria-label="Site">
+          <a href="Documentation.html">Help</a>
+          <a href="plus.html" aria-current="page">Plus</a>
+          <a href="https://status.n3uralcreativity.top">Site status</a>
+          <a href="changelog.html">Changelog</a>
+        </nav>
+        <a class="signin" href="https://plus.n3uralcreativity.top/account?mode=login"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5.4" r="2.6" /><path d="M2.8 13.6c.7-2.4 2.7-3.7 5.2-3.7s4.5 1.3 5.2 3.7" /></svg>Sign in</a>
+      </div>
+    </header>
+    <div id="notices"></div>
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Comics Downloader Plus</h1>
+        <p class="lede">
+          The chapters you download, readable on any device, and your settings on every browser. Both are encrypted in your browser before
+          they leave it. 1.50 USD a month after a 30-day free trial.
+        </p>
+        <div class="install">
+          <a class="button primary" href="#start">How to start</a>
+          <a class="button" href="https://plus.n3uralcreativity.top/account?mode=login">Sign in</a>
+        </div>
+        <p class="small" style="margin: 12px 0 0">The extension works fully without Plus. Plus pays for the server and keeps the rest free.</p>
+      </div>
+    </div>
+
+    <main>
+      <section class="split" id="library" aria-labelledby="library-title">
+        <div>
+          <h2 id="library-title">Cloud Library</h2>
+          <p>
+            Set <strong>Save to</strong> to Cloud Library, or Computer and Cloud, next to the Download button in the extension’s panel, and each
+            chapter you download goes to your library. Read it in the <a href="https://plus.n3uralcreativity.top/library/">web library</a> in
+            any browser, phones included, or install the web library as an app; pages you pick stay available offline.
+          </p>
+          <ul class="ticks">
+            <li>5 GB per account. The library shows how much you use.</li>
+            <li>A chapter you already saved isn’t saved twice.</li>
+            <li>Items are private to your account; there is no sharing.</li>
+            <li>Deleted items stay in the trash for 7 days.</li>
+          </ul>
+        </div>
+        <figure class="shot">
+          <div class="demo-out">
+            <p class="demo-path">Your library / Welcome to Demon School! Iruma-kun</p>
+            <div class="shelf" aria-hidden="true">
+              <div class="spine" style="--h: 146px"><i></i><b>460</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 128px"><i></i><b>461</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 137px"><i></i><b>462</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 146px"><i></i><b>463</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 128px"><i></i><b>464</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 137px"><i></i><b>465</b><small>CBZ</small></div>
+              <div class="spine" style="--h: 146px"><i></i><b>466</b><small>CBZ</small></div>
+            </div>
+          </div>
+          <figcaption>One shelf, the same on your computer, your phone and your tablet.</figcaption>
+        </figure>
+      </section>
+
+      <section class="split flip" id="sync" aria-labelledby="sync-title">
+        <figure class="shot">
+          <img src="assets/v5-panel-plus.webp" width="400" height="480" loading="lazy" alt="The extension's Plus tab: Cloud Library, settings sync, and a field to sign in with an email code." style="max-width: 400px" />
+        </figure>
+        <div>
+          <h2 id="sync-title">Settings sync</h2>
+          <p>
+            Your settings and per-series presets follow you to every browser you sign in on. Changes upload a few seconds after you make
+            them, and other browsers pick them up when they start.
+          </p>
+          <ul class="ticks">
+            <li>Restore points from the last 30 days put your settings back as they were.</li>
+            <li>Signing in takes a six-digit code from your email. There is no password.</li>
+            <li>You can see every signed-in browser and remove any of them.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band" id="privacy" aria-labelledby="privacy-title">
+        <h2 id="privacy-title">What the server sees</h2>
+        <p class="lede">Your email, your devices, your subscription, and how much you store. Not your pages, and not what you read.</p>
+        <div class="strip">
+          <div><b>In your browser</b><span>Pages, chapter and series names, and settings are encrypted with AES-256-GCM before upload.</span></div>
+          <div><b>On the server</b><span>Only the encrypted data, and its size.</span></div>
+          <div><b>On your other devices</b><span>A code sent to your email is all a new browser needs to read it.</span></div>
+        </div>
+        <p style="margin-top: 24px; color: var(--ink-2)">
+          For that last part to work, the server keeps a copy of your encryption key, itself encrypted with a server secret. That copy means
+          the server could technically read your data. It doesn’t, unless the law requires it. The details are in the
+          <a href="privacy.html">privacy policy</a>.
+        </p>
+      </section>
+    </main>
+
+    <section class="paper" id="price" aria-labelledby="price-title">
+      <div class="paper-in">
+        <div>
+          <h2 id="price-title">30 days free, then 1.50 USD a month</h2>
+          <ul class="ticks">
+            <li>Tax, if any, is shown at checkout. The trial needs a payment method; you get an email 7 days before it ends.</li>
+            <li>Cancel any time with Manage billing in the Plus tab or on the account page. Plus stays on until the end of the period you paid for.</li>
+            <li>Payments go through Stripe. Card details never reach Comics Downloader.</li>
+            <li>Plus has a limited number of places. When it’s full you can join a waiting list and get one email when a place opens.</li>
+          </ul>
+          <p style="margin-top: 20px">The <a href="terms.html">terms</a> and the <a href="refund.html">refund policy</a> have the rest.</p>
+        </div>
+        <div id="start">
+          <h3 style="font-size: 1.375rem; font-weight: 900; margin-bottom: 12px">How to start</h3>
+          <ol style="margin: 0; padding-left: 1.25rem">
+            <li>Open Comics Downloader’s <strong>Plus</strong> tab and enter your email.</li>
+            <li>Type the six-digit code from the email.</li>
+            <li>Press <strong>Start the 30-day free trial</strong> and finish the checkout.</li>
+            <li>Pick Cloud Library under Save to, and turn on settings sync in the Plus tab.</li>
+          </ol>
+          <div class="install">
+            <a class="button primary" href="./#hero-title">Get the extension</a>
+            <a class="button" href="https://plus.n3uralcreativity.top/account?mode=login">Sign in</a>
+          </div>
+          <p class="small" style="margin: 14px 0 0; color: var(--sheet-ink-2)">Already signed in on the account page? The extension in the same browser signs in with you.</p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="band" id="after" aria-labelledby="after-title">
+        <h2 id="after-title">If Plus ends</h2>
+        <p class="lede">
+          Your synced settings and your Cloud Library stay readable for 90 days, so you can read, download or delete them. Then they are
+          deleted; you get an email a week before. Nothing on your computer is touched, and the extension keeps working.
+        </p>
+      </section>
+    </main>
+
+    <footer class="bottom">
+      <div class="bottom-in">
+        <div>
+          <a class="brand" href="./"><img src="assets/icon48.png" alt="" width="26" height="26" />Comics Downloader</a>
+          <p>Made by N3uralCreativity. Something not working? The <a href="https://status.n3uralcreativity.top">status page</a> has a helper that writes the report for you.</p>
+        </div>
+        <nav aria-label="Extension">
+          <b>Extension</b>
+          <a href="Documentation.html">Help</a>
+          <a href="./#sites">Supported sites</a>
+          <a href="https://status.n3uralcreativity.top">Site status</a>
+          <a href="changelog.html">Changelog</a>
+        </nav>
+        <nav aria-label="Plus">
+          <b>Plus</b>
+          <a href="plus.html">What you get</a>
+          <a href="https://plus.n3uralcreativity.top/account?mode=login">Sign in</a>
+          <a href="https://plus.n3uralcreativity.top/library/">Web library</a>
+        </nav>
+        <nav aria-label="Legal">
+          <b>Legal</b>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Plus terms</a>
+          <a href="refund.html">Refunds</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="site.js" defer></script>
+  </body>
+</html>

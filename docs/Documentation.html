@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Help | Comics Downloader</title>
+    <meta name="description" content="How to install Comics Downloader, allow a site, download chapters, change the settings, use Plus, and fix common problems." />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#151819" />
+    <link rel="canonical" href="https://n3uralcreativity.top/comics-downloader/Documentation.html" />
+    <link rel="icon" type="image/png" href="assets/icon128.png" />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-in">
+        <a class="brand" href="./"><img src="assets/icon48.png" alt="" width="26" height="26" />Comics Downloader</a>
+        <nav aria-label="Site">
+          <a href="Documentation.html" aria-current="page">Help</a>
+          <a href="plus.html">Plus</a>
+          <a href="https://status.n3uralcreativity.top">Site status</a>
+          <a href="changelog.html">Changelog</a>
+        </nav>
+        <a class="signin" href="https://plus.n3uralcreativity.top/account?mode=login"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5.4" r="2.6" /><path d="M2.8 13.6c.7-2.4 2.7-3.7 5.2-3.7s4.5 1.3 5.2 3.7" /></svg>Sign in</a>
+      </div>
+    </header>
+    <div id="notices"></div>
+
+    <div class="page-head">
+      <div class="wrap">
+        <h1>Help</h1>
+        <p class="lede">How to get the extension working on a site, what each setting does, and what to try when a download stops.</p>
+        <div class="install">
+          <a class="button primary" href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp"><img src="assets/brands/chrome.svg" alt="" width="22" height="22" />Add to Chrome</a>
+          <a class="button" href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/"><img src="assets/brands/firefox.svg" alt="" width="22" height="22" />Add to Firefox</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="doc-grid">
+      <nav class="toc-side" aria-label="On this page">
+        <b>On this page</b>
+        <ul>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#install-linux">Linux, Android and iPhone</a></li>
+            <li><a href="#allow">Allow a site</a></li>
+            <li><a href="#on-site">Download from the site’s page</a></li>
+            <li><a href="#panel">Download from the side panel</a></li>
+            <li><a href="#comix">Comix</a></li>
+            <li><a href="#downloads">The Downloads tab</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#files">Files and reader apps</a></li>
+            <li><a href="#plus">Plus</a></li>
+            <li><a href="#problems">Troubleshooting and questions</a></li>
+          </ul>
+      </nav>
+      <article class="doc">
+
+        <section id="install">
+          <h2>Install</h2>
+          <p>
+            One extension for every Chromium browser and for Firefox. Pin it to the toolbar and click the icon: it opens in the browser’s side
+            panel, or in the sidebar in Firefox.
+          </p>
+          <ul class="platforms">
+            <li><a class="platform" href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp" rel="noopener"><img src="assets/brands/chrome.svg" alt="" width="32" height="32" /><b>Chrome</b><span>Chrome Web Store</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/" rel="noopener"><img src="assets/brands/firefox.svg" alt="" width="32" height="32" /><b>Firefox</b><span>Firefox Add-ons, 140 or newer</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp" rel="noopener"><img src="assets/brands/microsoft-edge.svg" alt="" width="32" height="32" /><b>Edge</b><span>Chrome Web Store</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="#install-opera"><img src="assets/brands/opera.svg" alt="" width="32" height="32" /><b>Opera and Opera GX</b><span>Chrome Web Store</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp" rel="noopener"><img src="assets/brands/brave.svg" alt="" width="32" height="32" /><b>Brave and Vivaldi</b><span>Chrome Web Store</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="#install-linux"><img src="assets/brands/linux-tux.svg" alt="" width="32" height="32" /><b>Linux</b><span>Through Firefox or Chrome</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="#install-android"><img src="assets/brands/android-icon.svg" alt="" width="32" height="32" /><b>Android</b><span>Firefox, not tested yet</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+            <li><a class="platform" href="#install-ios"><img src="assets/brands/apple.svg" alt="" width="32" height="32" class="mono" /><b>iPhone and iPad</b><span>Orion, not tested yet</span><svg class="go" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          </ul>
+
+          <h3 id="install-chrome"><img src="assets/brands/chrome.svg" alt="" width="22" height="22" />Chrome, Edge, Brave and Vivaldi</h3>
+          <ol>
+            <li>Open <a href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp">Comics Downloader on the Chrome Web Store</a>.</li>
+            <li>Press <strong>Add to Chrome</strong> (Edge says <strong>Get</strong>) and confirm.</li>
+            <li>Open the puzzle-piece menu and pin Comics Downloader, then click its icon to open the side panel.</li>
+            <li><a href="#allow">Allow the sites</a> you read.</li>
+          </ol>
+
+          <h3 id="install-firefox"><img src="assets/brands/firefox.svg" alt="" width="22" height="22" />Firefox</h3>
+          <ol>
+            <li>Open <a href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/">Comics Downloader on Firefox Add-ons</a>. It needs Firefox 140 or newer.</li>
+            <li>Press <strong>Add to Firefox</strong> and confirm.</li>
+            <li>Click the toolbar icon to open the sidebar, then <a href="#allow">allow the sites</a> you read.</li>
+          </ol>
+
+          <h3 id="install-opera"><img src="assets/brands/opera.svg" alt="" width="22" height="22" />Opera and Opera GX</h3>
+          <ol>
+            <li>In Opera, open <a href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp">Comics Downloader on the Chrome Web Store</a>.</li>
+            <li>Press <strong>Add to Opera</strong>. If Opera opens its extension manager, press <strong>Install</strong> there to finish.</li>
+            <li>Pin it from the extensions menu, then <a href="#allow">allow the sites</a> you read.</li>
+          </ol>
+
+          <h3 id="install-linux"><img src="assets/brands/linux-tux.svg" alt="" width="22" height="22" />Linux</h3>
+          <p>
+            On Linux the extension installs through the browser, exactly as on Windows or macOS. If you still need a browser, pick yours and
+            your distribution for the command, then follow the Chrome or Firefox steps above.
+          </p>
+          <div class="picker" id="linux-picker">
+            <div class="picker-row" role="radiogroup" aria-label="Browser">
+              <button type="button" role="radio" aria-checked="true" data-browser="firefox"><img src="assets/brands/firefox.svg" alt="" width="20" height="20" />Firefox</button>
+              <button type="button" role="radio" aria-checked="false" data-browser="chrome"><img src="assets/brands/chrome.svg" alt="" width="20" height="20" />Google Chrome</button>
+            </div>
+            <div class="picker-row distros" role="radiogroup" aria-label="Distribution">
+              <button type="button" role="radio" aria-checked="true" data-distro="debian"><img src="assets/brands/ubuntu.svg" alt="" width="18" height="18" />Ubuntu / Debian</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="fedora"><img src="assets/brands/fedora.svg" alt="" width="18" height="18" />Fedora / RHEL</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="arch"><img src="assets/brands/archlinux.svg" alt="" width="18" height="18" />Arch / Manjaro</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="suse"><img src="assets/brands/opensuse.svg" alt="" width="18" height="18" />openSUSE</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="flatpak"><img src="assets/brands/flatpak.svg" alt="" width="18" height="18" />Flatpak</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="gentoo"><img src="assets/brands/gentoo.svg" alt="" width="18" height="18" />Gentoo</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="void"><img src="assets/brands/voidlinux.svg" alt="" width="18" height="18" />Void</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="alpine"><img src="assets/brands/alpinelinux.svg" alt="" width="18" height="18" />Alpine</button>
+              <button type="button" role="radio" aria-checked="false" data-distro="nixos"><img src="assets/brands/nixos.svg" alt="" width="18" height="18" />NixOS</button>
+            </div>
+            <div class="cmd">
+              <code id="linux-cmd">sudo apt update &amp;&amp; sudo apt install firefox</code>
+              <button type="button" class="button copy" id="linux-copy">Copy</button>
+            </div>
+          </div>
+          <p class="small">
+            Prefer Chromium? Install <code>chromium</code> (Fedora, Arch, openSUSE, Void, Alpine), <code>chromium-browser</code> (older Ubuntu and
+            Debian) or <code>org.chromium.Chromium</code> from Flathub, then use the Chrome Web Store.
+          </p>
+
+          <h3 id="install-android"><img src="assets/brands/android-icon.svg" alt="" width="22" height="22" />Android</h3>
+          <p>
+            Firefox for Android (142 or newer) can install the add-on from
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/">Firefox Add-ons</a>. Phones have no side panel, so only
+            the buttons on the sites’ own pages are there, and version 5 hasn’t been tested on Android yet. Version 4’s Mihon source is not part of
+            version 5. If you have Plus, the <a href="https://plus.n3uralcreativity.top/library/">web library</a> reads your Cloud Library on any
+            phone.
+          </p>
+
+          <h3 id="install-ios"><img src="assets/brands/apple.svg" alt="" width="22" height="22" class="mono" />iPhone and iPad</h3>
+          <p>
+            There is no Safari version. Orion, a free browser by Kagi, installs Chrome and Firefox extensions on iPhone and iPad; version 5 hasn’t
+            been tested there yet, so treat it as an experiment.
+          </p>
+          <ol>
+            <li>Install Orion Browser from the App Store.</li>
+            <li>In Orion, open the <strong>•••</strong> menu, then <strong>Settings</strong>, and turn on Chrome or Firefox extensions.</li>
+            <li>Open the Chrome Web Store or Firefox Add-ons page above in Orion and add Comics Downloader.</li>
+            <li>In the <strong>•••</strong> menu, open <strong>Extensions</strong> and turn Comics Downloader on.</li>
+          </ol>
+
+          <h3 id="from-v4">Coming from version 4</h3>
+          <p>
+            The update installs over version 4. Your settings and your Plus sign-in carry over. Watched series, reading progress, reading stats,
+            the Release Agenda and the right-click menu are gone in version 5; the <a href="changelog.html">changelog</a> lists everything that
+            changed.
+          </p>
+        </section>
+
+        <section id="allow">
+          <h2>Allow a site</h2>
+          <p>
+            The extension does nothing on a site until you allow it. Open the <strong>Sites</strong> tab and press <strong>Allow</strong> next to
+            the site, or open a series on the site and press <strong>Allow</strong> in the panel. The browser asks once; say yes. Some sites ask
+            for one extra thing: MangaHub needs to read one of its own cookies, and Comix needs its image servers on <code>.site</code> addresses.
+          </p>
+          <p>
+            <strong>Allow all supported sites</strong> does them all in one prompt. Allowing a site again after an update can be needed when that
+            site moves its images to a new server; the panel says so.
+          </p>
+          <p>Which sites work right now, and what each one supports, is on the <a href="https://status.n3uralcreativity.top">status page</a>, checked every 30 minutes. Sites marked beta work but may still have rough edges.</p>
+        </section>
+
+        <section id="on-site">
+          <h2>Download from the site’s page</h2>
+          <p>On an allowed site, open a series page. Reload it once if you have just allowed the site.</p>
+          <ul>
+            <li><strong>Download all</strong> sits next to the site’s own buttons. It saves every chapter, one version of each when several groups translated it.</li>
+            <li>Every chapter gets a <strong>checkbox</strong>. Tick a few and a bar appears at the bottom: pick the format and press <strong>Download</strong>. <strong>Select all</strong> ticks every chapter shown.</li>
+            <li>The bar shows the progress while it runs, and <strong>Cancel</strong> stops it.</li>
+          </ul>
+          <p>Chapters that cost coins on the site are not offered.</p>
+          <figure class="shot">
+            <img src="assets/v5-inpage.webp" width="900" height="575" loading="lazy" alt="A chapter list on chikari.moe with a checkbox on each row and the extension’s bar at the bottom: 2 selected, CBZ, Download 2 chapters." />
+            <figcaption>On chikari.moe: the checkboxes and the bar at the bottom are the extension’s.</figcaption>
+          </figure>
+        </section>
+
+        <section id="panel">
+          <h2>Download from the side panel</h2>
+          <p>The <strong>This tab</strong> view lists the chapters of the series open in the current tab, on every supported site.</p>
+          <ul>
+            <li>Click a row to pick it. Hold <kbd>Shift</kbd> and click another row to pick everything in between.</li>
+            <li><strong>All</strong> and <strong>None</strong> pick or clear what is shown; the group menu shows one scanlation group at a time.</li>
+            <li>The arrows button flips the order between oldest and newest first.</li>
+            <li>Choose CBZ, ZIP or PDF next to the button, then press <strong>Download</strong>.</li>
+          </ul>
+          <figure class="shot">
+            <img src="assets/v5-panel-chapters.webp" width="400" height="800" loading="lazy" alt="The side panel’s This tab view with three chapters ticked and a Download 3 chapters button." />
+          </figure>
+        </section>
+
+        <section id="comix">
+          <h2>Comix</h2>
+          <p>
+            On Comix the extension adds nothing to the page; everything happens in the panel, one chapter at a time. Open the chapter, scroll
+            through it to the last page so the reader loads every image, then press <strong>Download this chapter</strong> in the panel.
+          </p>
+        </section>
+
+        <section id="downloads">
+          <h2>The Downloads tab</h2>
+          <p>Every download is a job in this list, with its progress. You can <strong>Pause</strong>, <strong>Resume</strong> or <strong>Cancel</strong> it, and remove finished ones.</p>
+          <ul>
+            <li>Jobs run one after another. The list is kept until the browser closes.</li>
+            <li>If some chapters failed, <strong>Try missed chapters again</strong> fetches only those.</li>
+            <li>“Waiting for you to pass a browser check” means the site wants to see a real visitor. Open the site in a tab, pass its check, and press <strong>Resume</strong>. Only that site’s jobs wait; the extension never answers the check for you.</li>
+            <li>Messages at the bottom say what went wrong, chapter by chapter.</li>
+          </ul>
+          <figure class="shot">
+            <img src="assets/v5-panel-downloads.webp" width="400" height="800" loading="lazy" alt="The Downloads tab with a running job, its progress, and Pause and Cancel buttons." />
+          </figure>
+        </section>
+
+        <section id="settings">
+          <h2>Settings</h2>
+          <dl>
+            <div><dt>Default format</dt><dd>CBZ, ZIP or PDF. You can still pick another one for each download.</dd></div>
+            <div><dt>Chapters per file</dt><dd>1 saves each chapter as its own file. A higher number puts that many chapters in one ZIP, each chapter as its own CBZ, PDF or folder of images inside.</dd></div>
+            <div><dt>Folder inside Downloads</dt><dd>A folder name, such as <code>Manga</code>. Leave it empty to save straight to Downloads. Each series gets its own folder inside it.</dd></div>
+            <div><dt>Chapter names</dt><dd>Either your own name pattern (below), or <code>Series - Chapter 0012</code>, the layout Kavita and Komga sort best.</dd></div>
+            <div><dt>Add ComicInfo.xml to CBZ files</dt><dd>Komga, Kavita and Mihon read the series, chapter number, group and date from it.</dd></div>
+            <div>
+              <dt>File names</dt>
+              <dd>
+                Patterns for the chapter name, the CBZ file name and the bundle name. Placeholders: <code>{manga}</code>, <code>{num}</code>,
+                <code>{num4}</code> (the number padded to four digits), <code>{label}</code>, <code>{group}</code>, <code>{language}</code> and
+                <code>{date}</code>. In the CBZ file name, <code>{entry}</code> is the chapter name.
+              </dd>
+            </div>
+            <div><dt>Pace</dt><dd>Normal, or Gentle, which waits three times longer between requests. Use Gentle if a site starts refusing downloads.</dd></div>
+            <div><dt>Retries per image</dt><dd>How many times a page that failed is asked for again before the chapter counts as missed.</dd></div>
+            <div><dt>Theme</dt><dd>The panel follows the browser, or stays light or dark.</dd></div>
+            <div><dt>Notices from the developer</dt><dd>Short messages from me at the top of the panel, about a site that changed or an update you need. The panel looks for them at most every 6 hours. They’re how I can reach you when something breaks, so I’d keep them on.</dd></div>
+          </dl>
+          <p>The version number is at the bottom of the Settings tab; the status page’s helper asks for it.</p>
+          <figure class="shot">
+            <img src="assets/v5-panel-settings.webp" width="480" height="600" loading="lazy" alt="The Settings tab: default format, chapters per file, folder inside Downloads, chapter names and ComicInfo.xml." />
+          </figure>
+        </section>
+
+        <section id="files">
+          <h2>Files and reader apps</h2>
+          <ul>
+            <li><strong>CBZ</strong> is a ZIP of the page images with a <code>ComicInfo.xml</code>. Reader apps such as Kavita, Komga, Mihon, Panels and CDisplayEx open it.</li>
+            <li><strong>ZIP</strong> holds the page images only. <strong>PDF</strong> puts one page image per page.</li>
+            <li>Pages keep the quality the site serves; nothing is re-compressed.</li>
+            <li>Files go to your Downloads folder, or the folder you set. Their entries are removed from the browser’s download list after saving; the files stay.</li>
+          </ul>
+        </section>
+
+        <section id="plus">
+          <h2>Plus</h2>
+          <p>
+            Plus is optional: a Cloud Library for the chapters you download, readable on any device, and your settings on every browser. Both
+            are encrypted in your browser before upload. It costs 1.50 USD a month after a 30-day free trial. More on the <a href="plus.html">Plus page</a>.
+          </p>
+          <ul>
+            <li><strong>Sign in:</strong> open the <strong>Plus</strong> tab and enter your email. You get a six-digit code by email; there is no password. If the address has no account yet, signing in creates one.</li>
+            <li><strong>Cloud Library:</strong> in <strong>This tab</strong>, set <strong>Save to</strong> to <strong>Cloud Library</strong>, or <strong>Computer and Cloud</strong> to keep the file on disk too. Each chapter is encrypted and uploaded after it downloads. Downloads started from the site’s own page go to your computer only. Read them at <a href="https://plus.n3uralcreativity.top/library/">the web library</a>.</li>
+            <li><strong>Settings sync:</strong> turn on <strong>Sync settings with my other browsers</strong>. Changes upload a few seconds after you make them, and other browsers pick them up when they start, or when you press <strong>Sync now</strong>. <strong>Restore points</strong> put your settings back as they were on an earlier day.</li>
+            <li><strong>Copy reading lists:</strong> under <strong>Copy reading lists</strong>, pick where to copy from (a site, a MyAnimeList export file, or your v4 watched list) and where to copy to. Sign in on both sites in this browser first. You choose which statuses to copy, check every series matched by title only, and pick by hand the ones it can't find. A copy only adds series; nothing already on your list changes. For Comix, it saves a file you load on Comix's import page with <strong>Merge</strong>.</li>
+            <li><strong>Signed-in browsers</strong> lists your browsers; remove any you don’t recognise. The <a href="https://plus.n3uralcreativity.top/account">account page</a> has billing, devices and account deletion too.</li>
+            <li>
+              <strong>“This browser can’t read your cloud data yet”</strong> appears on accounts whose encryption key was made before September 2026
+              and is only on the browser that set up Plus. Open Comics Downloader there once and the key reaches the service; then press
+              <strong>Check again</strong>. If that browser is gone, <strong>start over</strong> deletes the cloud data nothing can read any more and makes a new key.
+            </li>
+          </ul>
+          <p>What Plus stores and why is in the <a href="privacy.html">privacy policy</a>; the <a href="terms.html">terms</a> and <a href="refund.html">refund policy</a> cover billing.</p>
+          <figure class="shot">
+            <img src="assets/v5-panel-plus.webp" width="400" height="480" loading="lazy" alt="The Plus tab: Cloud Library, settings sync, and the email field to sign in." />
+          </figure>
+        </section>
+
+        <section id="problems">
+          <h2>Troubleshooting and questions</h2>
+          <p>
+            The <a href="https://status.n3uralcreativity.top">status page</a> shows whether a site itself is working right now. Its helper walks
+            through these fixes, can put you in touch with me when I’m online, and writes a report you can file on GitHub.
+          </p>
+          <div class="faq">
+            <details>
+              <summary>There are no buttons on the site</summary>
+              <p>
+                Check that the site is allowed in the <strong>Sites</strong> tab, then reload the series page. Buttons appear on series pages, not
+                on the home page or inside the reader. If a site changed its pages and the buttons are gone, the panel’s <strong>This tab</strong>
+                view still lists the chapters.
+              </p>
+            </details>
+            <details>
+              <summary>The site keeps asking for a browser check</summary>
+              <p>
+                The extension never answers a check for you. When a site asks for one, only that site’s downloads pause. Pass the check in a normal
+                tab of the site, then press <strong>Resume</strong> in the Downloads tab. If it keeps coming back, set <strong>Pace</strong> to
+                Gentle in Settings, wait a few minutes, and turn off a VPN or blocker that may interfere with the check.
+              </p>
+            </details>
+            <details>
+              <summary>Downloads fail with 403 or 429</summary>
+              <p>
+                The site is refusing requests for a while, usually because it saw too many in a short time. Set <strong>Pace</strong> to Gentle,
+                wait about ten minutes, then press <strong>Try missed chapters again</strong>. Another downloader or reader app on the same
+                connection counts toward the same limit.
+              </p>
+            </details>
+            <details>
+              <summary>A download stopped partway</summary>
+              <p>
+                Closing the browser ends the queue; it isn’t kept after a restart. Open the series again, pick the chapters that are missing and
+                download them. Within one session, <strong>Try missed chapters again</strong> fetches only the ones that failed.
+              </p>
+            </details>
+            <details>
+              <summary>It says “The save was cancelled”</summary>
+              <p>
+                The browser’s save window was closed without saving. If it asks where to save every file, turn off “Ask where to save each file
+                before downloading” in the browser’s download settings.
+              </p>
+            </details>
+            <details>
+              <summary>It says “This version can’t reach” an image server</summary>
+              <p>The site moved its images to a new server. Update the extension, then allow the site again in the Sites tab.</p>
+            </details>
+            <details>
+              <summary>A file won’t open, or pages are missing</summary>
+              <p>
+                Download the chapter again. If a CBZ won’t open, try the same chapter as ZIP: if the ZIP opens, the reader app is the problem.
+                Pages are saved exactly as the site serves them.
+              </p>
+            </details>
+            <details>
+              <summary>Where do my files end up?</summary>
+              <p>
+                In your Downloads folder, inside the folder set in Settings, with one folder per series. Each chapter is its own CBZ, ZIP or PDF,
+                or several chapters share one ZIP if <strong>Chapters per file</strong> is above 1. The entries are removed from the browser’s
+                download list after saving; the files stay.
+              </p>
+            </details>
+            <details>
+              <summary>Can I change how files are named and packed?</summary>
+              <p>
+                Yes, in the <a href="#settings">Settings tab</a>: the format, chapters per file, the folder, Kavita and Komga naming, your own name
+                patterns, and whether CBZ files get ComicInfo.xml.
+              </p>
+            </details>
+            <details>
+              <summary>Does it open tabs while downloading?</summary>
+              <p>
+                No. Version 4 opened background tabs on Comix; version 5 fetches everything itself. On Comix it reads the chapter you already
+                have open, so scroll through it to the end before pressing Download.
+              </p>
+            </details>
+            <details>
+              <summary>Why isn’t my site supported?</summary>
+              <p>
+                The <a href="https://status.n3uralcreativity.top">status page</a> lists every site that was looked at and why the others are left
+                out: some already let readers download, some sell chapters with copy protection, and some sit behind checks the extension won’t
+                get around.
+              </p>
+            </details>
+            <details>
+              <summary>Is it free?</summary>
+              <p>
+                Yes. Everything on this page except the Plus section is free. <a href="plus.html">Plus</a> is optional, 1.50 USD a month after a
+                30-day trial, and pays for the Cloud Library and settings sync.
+              </p>
+            </details>
+          </div>
+        </section>
+      </article>
+      </div>
+    </main>
+
+    <footer class="bottom">
+      <div class="bottom-in">
+        <div>
+          <a class="brand" href="./"><img src="assets/icon48.png" alt="" width="26" height="26" />Comics Downloader</a>
+          <p>Made by N3uralCreativity. Something not working? The <a href="https://status.n3uralcreativity.top">status page</a> has a helper that writes the report for you.</p>
+        </div>
+        <nav aria-label="Extension">
+          <b>Extension</b>
+          <a href="Documentation.html">Help</a>
+          <a href="./#sites">Supported sites</a>
+          <a href="https://status.n3uralcreativity.top">Site status</a>
+          <a href="changelog.html">Changelog</a>
+        </nav>
+        <nav aria-label="Plus">
+          <b>Plus</b>
+          <a href="plus.html">What you get</a>
+          <a href="https://plus.n3uralcreativity.top/account?mode=login">Sign in</a>
+          <a href="https://plus.n3uralcreativity.top/library/">Web library</a>
+        </nav>
+        <nav aria-label="Legal">
+          <b>Legal</b>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Plus terms</a>
+          <a href="refund.html">Refunds</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="site.js" defer></script>
+  </body>
+</html>
