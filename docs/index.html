@@ -123,6 +123,48 @@
   .stat .n { font: 800 clamp(30px, 4vw, 42px)/1 var(--font); letter-spacing: -0.03em; color: #fff; }
   .stat .l { margin-top: 8px; font: 500 12px/1.35 var(--mono); color: var(--film-soft); text-transform: uppercase; letter-spacing: 0.05em; }
 
+
+  /* ── release countdown ── */
+  .launch { margin: 30px auto 0; }
+  .count { display: flex; justify-content: center; align-items: flex-start; gap: clamp(8px, 1.6vw, 16px); }
+  .unit {
+    position: relative;
+    width: clamp(84px, 15vw, 128px);
+    padding: clamp(14px, 2vw, 20px) 0 clamp(12px, 1.6vw, 16px);
+    border: 1px solid oklch(74% 0.14 293 / 0.32);
+    border-radius: 16px;
+    background: linear-gradient(180deg, oklch(27% 0.07 293 / 0.7), oklch(15% 0.03 293 / 0.7));
+    box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.08), 0 14px 40px oklch(0% 0 0 / 0.45), 0 0 0 1px oklch(0% 0 0 / 0.3);
+    overflow: hidden;
+  }
+  /* The seam of a flip clock, across the middle of the digits. */
+  .unit::after {
+    content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 10px); height: 1px;
+    background: oklch(0% 0 0 / 0.45); box-shadow: 0 1px 0 oklch(100% 0 0 / 0.05);
+  }
+  .unit[hidden], .count .sep[hidden] { display: none; }
+  .num {
+    display: block;
+    font: 800 clamp(40px, 7.4vw, 70px)/1 var(--font);
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    text-shadow: 0 0 28px oklch(74% 0.14 293 / 0.45);
+  }
+  .lab { display: block; margin-top: 10px; font: 500 11px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--film-soft); }
+  .count .sep {
+    align-self: center; margin-top: -22px;
+    font: 800 clamp(28px, 4.6vw, 44px)/1 var(--font); color: var(--film-accent);
+    animation: blink 1s steps(2, jump-none) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0.25; } }
+  .when { margin: 20px auto 0; font-size: 17px; color: var(--film-soft); }
+  .when strong { color: var(--film-ink); font-weight: 700; }
+  .launch .cta-row { margin-top: 18px !important; }
+  .btn-film svg { width: 16px; height: 16px; }
+  .out h2 { font-size: clamp(34px, 6vw, 60px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #fff; }
+  .out h2 em { font-style: normal; color: var(--film-accent); }
+  @media (max-width: 560px) { .count .sep { display: none; } }
   .hero .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
   .btn-film { background: oklch(100% 0 0 / 0.06); color: var(--film-ink); border-color: oklch(100% 0 0 / 0.2); }
   .btn-film:hover { background: oklch(100% 0 0 / 0.12); color: #fff; transform: translateY(-1px); }
@@ -239,6 +281,7 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .badge .dot { animation: none; }
+    .count .sep { animation: none; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
     .card, .card:hover { transition: none; transform: none; }
   }
@@ -266,7 +309,32 @@
     <span class="badge"><span class="dot"></span>Release · 22 November, 12:00 UTC</span>
     <h1><span class="rename"><s>Comix</s> <em>Comics</em></span> Downloader is on the way.</h1>
     <p class="lede">The extension is being rewritten and renamed. More sites, the same downloads you know, and still just a browser extension.</p>
-    <p class="lede">It comes out on Chrome and Firefox on <strong><time data-release datetime="2026-11-22T12:00:00Z">Sunday 22 November at 12:00 UTC</time></strong>. <span data-countdown></span></p>
+    <div class="launch" data-launch="2026-11-22T12:00:00Z">
+      <div class="before">
+        <div class="count" role="timer" aria-label="Time left until the release">
+          <div class="unit" data-u="d" hidden><span class="num">0</span><span class="lab">days</span></div>
+          <span class="sep" data-u="d" aria-hidden="true" hidden>:</span>
+          <div class="unit" data-u="h"><span class="num">--</span><span class="lab">hours</span></div>
+          <span class="sep" aria-hidden="true">:</span>
+          <div class="unit" data-u="m"><span class="num">--</span><span class="lab">minutes</span></div>
+          <span class="sep" aria-hidden="true">:</span>
+          <div class="unit" data-u="s"><span class="num">--</span><span class="lab">seconds</span></div>
+        </div>
+        <p class="when">On Chrome and Firefox, <strong><time datetime="2026-11-22T12:00:00Z">Sunday 22 November at 12:00 UTC</time></strong></p>
+        <div class="cta-row">
+          <a class="btn btn-film" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Comics+Downloader+5.0+comes+out&amp;dates=20261122T120000Z/20261122T123000Z&amp;details=Comix+Downloader+5.0%2C+renamed+Comics+Downloader%2C+comes+out+on+Chrome+and+Firefox.&amp;location=https%3A%2F%2Fn3uralcreativity.top%2Fcomics-downloader%2F" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>Google Calendar</a>
+          <a class="btn btn-film" href="assets/release.ics" download="comics-downloader-5.0.ics"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>Apple, Outlook (.ics)</a>
+        </div>
+      </div>
+      <div class="out" hidden>
+        <h2>It's <em>out</em>.</h2>
+        <p class="when">Comics Downloader 5.0 is on the stores. Already have Comix Downloader? It updates itself.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp" target="_blank" rel="noopener">Add to Chrome</a>
+          <a class="btn btn-film" href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/" target="_blank" rel="noopener">Add to Firefox</a>
+        </div>
+      </div>
+    </div>
 
     <div class="stage">
       <div class="demo-frame">
@@ -460,19 +528,38 @@
 
 <script src="site.js" defer></script>
 <script>
-  // The release time in the visitor's own time zone, and how long until it.
+  // Release countdown: ticks every second, shows the time in the visitor's own zone, and turns into the store buttons at 12:00 UTC.
   (function () {
-    var t = document.querySelector("time[data-release]"), c = document.querySelector("[data-countdown]");
-    if (!t || !c) return;
-    var at = new Date(t.dateTime);
-    t.textContent = at.toLocaleString(undefined, { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }) + " your time";
-    t.title = "12:00 UTC";
-    function tick() {
-      var m = Math.ceil((at - Date.now()) / 60000);
-      if (m <= 0) { c.textContent = "It's out now."; return clearInterval(id); }
-      c.textContent = "That's in " + (m >= 60 ? Math.floor(m / 60) + " h " : "") + (m % 60) + " min.";
+    var root = document.querySelector("[data-launch]");
+    if (!root) return;
+    var at = Date.parse(root.dataset.launch);
+    var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var time = root.querySelector(".when time");
+    time.textContent = new Date(at).toLocaleString(undefined, { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }) + " your time";
+    time.title = "12:00 UTC";
+    var units = {};
+    root.querySelectorAll(".unit").forEach(function (u) { units[u.dataset.u] = u.querySelector(".num"); });
+    function set(k, v) {
+      var el = units[k], text = k === "d" ? String(v) : String(v).padStart(2, "0");
+      if (el.textContent === text) return;
+      el.textContent = text;
+      if (!still && el.animate) el.animate([{ transform: "translateY(-30%)", opacity: 0 }, { transform: "none", opacity: 1 }], { duration: 380, easing: "cubic-bezier(.2,.8,.2,1)" });
     }
-    var id = setInterval(tick, 30000);
+    function tick() {
+      var left = Math.max(0, Math.ceil((at - Date.now()) / 1000));
+      if (!left) {
+        root.querySelector(".before").hidden = true;
+        root.querySelector(".out").hidden = false;
+        return clearInterval(id);
+      }
+      var d = Math.floor(left / 86400);
+      root.querySelectorAll('[data-u="d"]').forEach(function (e) { e.hidden = !d; });
+      set("d", d);
+      set("h", Math.floor(left / 3600) % 24);
+      set("m", Math.floor(left / 60) % 60);
+      set("s", left % 60);
+    }
+    var id = setInterval(tick, 1000);
     tick();
   })();
 </script>

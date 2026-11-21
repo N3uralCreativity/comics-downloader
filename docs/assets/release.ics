@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//N3uralCreativity//Comics Downloader//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:comics-downloader-5.0-release@n3uralcreativity.top
+DTSTAMP:20261121T220000Z
+DTSTART:20261122T120000Z
+DTEND:20261122T123000Z
+SUMMARY:Comics Downloader 5.0 comes out
+DESCRIPTION:Comix Downloader 5.0\, renamed Comics Downloader\, comes out on Chrome and Firefox. https://n3uralcreativity.top/comics-downloader/
+URL:https://n3uralcreativity.top/comics-downloader/
+END:VEVENT
+END:VCALENDAR
