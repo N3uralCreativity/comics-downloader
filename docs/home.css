@@ -935,6 +935,7 @@ ul.ticks li::before {
 }
 .paper ul.ticks li {
   border-color: #cfd3d0;
+  color: var(--sheet-ink-2);
 }
 .paper ul.ticks li::before {
   border-color: var(--sheet-accent);
