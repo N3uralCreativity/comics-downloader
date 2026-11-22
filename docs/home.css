@@ -441,6 +441,8 @@ main,
   height: 158px;
   padding: 0 10px;
   border-bottom: 4px solid var(--ink-2);
+  /* Decoration: on a phone the spines that don't fit are cut off rather than widening the page. */
+  overflow: hidden;
 }
 .spine {
   display: flex;
@@ -875,42 +877,99 @@ main,
 .sites li a:hover {
   color: var(--accent);
 }
-/* Copy reading lists: the two sites and the page's four steps. */
-.move {
+/* Copy reading lists: a working model of the extension's copy page, with its four steps. */
+.copy-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  align-items: center;
-  gap: 16px;
+  align-content: start;
+  gap: 12px;
+  min-height: 290px;
+  padding: 14px;
 }
-.move-site {
+.copy-demo [hidden] {
+  display: none;
+}
+.copy-body .field {
   display: grid;
-  justify-items: center;
   gap: 4px;
-  padding: 24px 12px;
-  border: 1px solid var(--rule);
+  font-weight: 700;
+}
+.copy-demo select {
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid var(--rule-strong);
   border-radius: var(--radius);
-  background: var(--paper-sunk);
-  text-align: center;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 400;
 }
-.move-site img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 6px;
-}
-.move-site span {
+.copy-note {
+  margin: 0;
   color: var(--ink-3);
   font-size: 0.8125rem;
 }
-.move-arrow {
-  width: 40px;
-  color: var(--accent);
+.copy-pick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+}
+.copy-pick input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.copy-pick .m {
+  margin-left: auto;
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+}
+.copy-group {
+  margin: 4px 0 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+.copy-bar {
+  height: 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper-sunk);
+  overflow: hidden;
+}
+.copy-bar i {
+  display: block;
+  width: calc(var(--p, 0) * 100%);
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.12s linear;
+}
+.copy-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr));
+  gap: 8px;
+}
+.copy-tiles div {
+  display: grid;
+  gap: 2px;
+  padding: 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+}
+.copy-tiles b {
+  color: var(--ink);
+  font-size: 1.375rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
 }
 .move-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 20px 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
   counter-reset: step;

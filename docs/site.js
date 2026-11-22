@@ -201,6 +201,153 @@ function demo() {
   else setTimeout(() => document.visibilityState === 'visible' && !saved.size && run(), 900);
 }
 
+/**
+ * The Plus page's model of Copy reading lists: the extension's four steps with its own wording, on a
+ * sample list. Each series ends the way real ones do: found by tracker id, matched by title only
+ * (checked by hand), not found, or already on the target list. Nothing leaves the page.
+ */
+function copyDemo() {
+  const root = document.getElementById('copy-demo');
+  if (!root) return;
+  const STATUSES = { reading: 'Reading', planned: 'Plan to read', onhold: 'On hold', completed: 'Completed', dropped: 'Dropped' };
+  // Title, status, outcome on the target site, and the title found there when matched by title only.
+  const LIST = [
+    ['Solo Leveling', 'completed', 'id'],
+    ['Kagurabachi', 'reading', 'id'],
+    ['Dandadan', 'reading', 'id'],
+    ['One Piece', 'reading', 'there'],
+    ['Sousou no Frieren', 'reading', 'title', 'Frieren: Beyond Journey’s End'],
+    ['Blue Lock', 'planned', 'id'],
+    ['Omniscient Reader', 'planned', 'title', 'Omniscient Reader’s Viewpoint'],
+    ['The Infinite Mage', 'planned', 'missing'],
+    ['Chainsaw Man', 'onhold', 'id'],
+    ['Kaiju No. 8', 'completed', 'id'],
+    ['Tokyo Ghoul', 'dropped', 'id'],
+  ];
+  const FROM = ['MangaDex', 'Weeb Central', 'Atsumaru', 'MangaHub'];
+  const TO = ['Weeb Central', 'MangaDex', 'MangaHub', 'chikari.moe'];
+  const body = root.querySelector('.copy-body');
+  const next = root.querySelector('[data-next]');
+  const back = root.querySelector('[data-back]');
+  const steps = [...root.querySelectorAll('.move-steps li')];
+  const status = root.querySelector('.demo-status');
+  const s = { step: 0, from: FROM[0], to: TO[0], statuses: new Set(Object.keys(STATUSES)), keep: new Set(), busy: false };
+
+  const pick = (label, checked, onChange, extra) => {
+    const box = el('input', { type: 'checkbox' });
+    box.checked = checked;
+    box.addEventListener('change', () => onChange(box.checked));
+    return el('label', { class: 'copy-pick' }, box, el('span', {}, label), ...(extra ? [el('span', { class: 'm' }, extra)] : []));
+  };
+  const bar = (p) => el('div', { class: 'copy-bar' }, el('i', { style: `--p:${p}` }));
+  const chosen = () => LIST.filter(([, st]) => s.statuses.has(st));
+  const toAdd = () => chosen().filter(([t, , how]) => how === 'id' || (how === 'title' && s.keep.has(t)));
+
+  function show(step) {
+    s.step = step;
+    steps.forEach((li, i) => (i === step ? li.setAttribute('aria-current', 'step') : li.removeAttribute('aria-current')));
+    back.hidden = step === 0 || step === 3;
+    render();
+  }
+
+  function render() {
+    if (s.step === 0) {
+      const select = (label, options, key) => {
+        const box = el('select', {}, ...options.map((o) => el('option', {}, o)));
+        box.value = s[key];
+        box.addEventListener('change', () => ((s[key] = box.value), render()));
+        return el('label', { class: 'field' }, label, box);
+      };
+      const same = s.from === s.to;
+      body.replaceChildren(
+        select('Copy from', FROM, 'from'),
+        select('Copy to', TO, 'to'),
+        el('p', { class: 'copy-note' }, same ? 'Pick two different sites.' : 'Sign in on both sites in this browser first. The copy runs through your own tabs of them.'),
+        el('p', { class: 'copy-note' }, 'A copy only adds series. Nothing already on the target site is changed or removed.'),
+      );
+      next.disabled = same;
+      next.textContent = 'Read the list';
+    } else if (s.step === 1) {
+      const counts = {};
+      for (const [, st] of LIST) counts[st] = (counts[st] ?? 0) + 1;
+      body.replaceChildren(
+        el('p', { class: 'copy-group' }, `${LIST.length} series on ${s.from}. Pick what to copy:`),
+        ...Object.entries(STATUSES).map(([k, label]) => pick(label, s.statuses.has(k), (on) => (on ? s.statuses.add(k) : s.statuses.delete(k), render()), String(counts[k] ?? 0))),
+      );
+      next.disabled = !chosen().length;
+      next.textContent = `Find them on ${s.to}`;
+    } else if (s.step === 2) {
+      const list = chosen();
+      const of = (how) => list.filter((r) => r[2] === how);
+      const titled = of('title');
+      const missing = of('missing');
+      body.replaceChildren(
+        el('div', { class: 'copy-tiles' },
+          el('div', {}, el('b', {}, String(of('id').length)), 'Matched by tracker id'),
+          el('div', {}, el('b', {}, String(of('there').length)), 'Already on your list'),
+          el('div', {}, el('b', {}, String(missing.length)), 'Not found'),
+        ),
+        ...(titled.length ? [el('p', { class: 'copy-group' }, `${titled.length} matched by title only: check ${titled.length === 1 ? 'it' : 'them'}`)] : []),
+        ...titled.map(([t, , , found]) => pick(t, s.keep.has(t), (on) => (on ? s.keep.add(t) : s.keep.delete(t), render()), `as ${found}`)),
+        ...(missing.length ? [el('p', { class: 'copy-group' }, `${missing.length} not found on ${s.to}`)] : []),
+        ...missing.map(([t]) => el('p', { class: 'copy-pick' }, el('span', {}, t), el('span', { class: 'm' }, 'No results, left out'))),
+      );
+      const n = toAdd().length;
+      next.disabled = !n;
+      next.textContent = `Add ${n} series to ${s.to}`;
+    }
+  }
+
+  /** A step's work: the list read, each series looked up, or each one added, one at a time. */
+  async function work(label, items, each) {
+    s.busy = true;
+    next.disabled = back.disabled = true;
+    for (const [i, item] of items.entries()) {
+      body.replaceChildren(el('p', { class: 'copy-group' }, `${label} · ${i + 1} of ${items.length}`), bar((i + 1) / items.length), el('p', { class: 'copy-note' }, item[0]));
+      each?.(item);
+      if (!still) await wait(each ? 260 : 90);
+    }
+    s.busy = false;
+    back.disabled = false;
+  }
+
+  next.addEventListener('click', async () => {
+    if (s.busy) return;
+    if (s.step === 0) {
+      await work(`Reading your list from ${s.from}`, LIST);
+      show(1);
+    } else if (s.step === 1) {
+      await work(`Looking for each series on ${s.to}`, chosen());
+      s.keep = new Set(chosen().filter((r) => r[2] === 'title').map((r) => r[0]));
+      show(2);
+      status.textContent = 'Untick a match that looks wrong, and it is left out.';
+    } else if (s.step === 2) {
+      const adding = toAdd();
+      const there = chosen().filter((r) => r[2] === 'there').length;
+      const left = chosen().length - adding.length - there;
+      show(3);
+      await work(`Adding to ${s.to}`, adding, ([t, st]) => (status.textContent = `${t}: added as ${STATUSES[st]}`));
+      body.replaceChildren(
+        el('p', { class: 'copy-group' }, `Added ${adding.length} series to ${s.to}.`),
+        el('div', { class: 'copy-tiles' },
+          el('div', {}, el('b', {}, String(adding.length)), 'Added'),
+          el('div', {}, el('b', {}, String(there)), 'Already on your list'),
+          el('div', {}, el('b', {}, String(left)), 'Not copied'),
+        ),
+        el('p', { class: 'copy-note' }, 'Every series keeps its status. Nothing already on the list was changed.'),
+      );
+      status.textContent = '';
+      next.disabled = false;
+      next.textContent = 'Copy another list';
+    } else {
+      s.statuses = new Set(Object.keys(STATUSES));
+      show(0);
+    }
+  });
+  back.addEventListener('click', () => !s.busy && show(s.step - 1));
+  show(0);
+}
+
 /** The film plays while it is on screen, from the start the first time; never with reduced motion. */
 function motion() {
   const v = document.getElementById('motion');
@@ -254,6 +401,7 @@ function linux() {
 }
 
 demo();
+copyDemo();
 linux();
 motion();
 ticker();

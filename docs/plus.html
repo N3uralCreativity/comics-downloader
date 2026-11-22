@@ -9,8 +9,8 @@
     <meta name="theme-color" content="#151819" />
     <link rel="canonical" href="https://n3uralcreativity.top/comics-downloader/plus.html" />
     <link rel="icon" type="image/png" href="assets/icon128.png" />
-    <link rel="stylesheet" href="tokens.css?v=5.0.1" />
-    <link rel="stylesheet" href="home.css?v=5.0.1" />
+    <link rel="stylesheet" href="tokens.css?v=5.0.2" />
+    <link rel="stylesheet" href="home.css?v=5.0.2" />
   </head>
   <body>
     <header class="top">
@@ -61,20 +61,23 @@
             <li>It runs in your browser, through your own signed-in tabs. Nothing goes through the Plus server, and nothing is kept afterwards.</li>
           </ul>
         </div>
-        <figure class="shot">
-          <div class="move">
-            <div class="move-site"><img src="assets/sites/mangadex.svg" alt="" width="40" height="40" /><b>MangaDex</b><span>Copy from</span></div>
-            <svg class="move-arrow" viewBox="0 0 32 16" aria-hidden="true"><path d="M2 8h26M21 2l7 6-7 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            <div class="move-site"><img src="assets/sites/weebcentral.png" alt="" width="40" height="40" /><b>Weeb Central</b><span>Copy to</span></div>
+        <div class="demo copy-demo" id="copy-demo" role="group" aria-label="A working model of Copy reading lists. Nothing is copied.">
+          <div class="demo-panel">
+            <div class="demo-head"><strong>Copy reading lists</strong><span>Try it: nothing is copied</span></div>
+            <ol class="move-steps">
+              <li aria-current="step">Sites</li>
+              <li>What to copy</li>
+              <li>Check</li>
+              <li>Copy</li>
+            </ol>
+            <div class="copy-body"><p class="copy-note">This demo needs JavaScript.</p></div>
+            <div class="demo-foot">
+              <button type="button" class="button" data-back hidden>Back</button>
+              <button type="button" class="button primary" data-next disabled>Read the list</button>
+            </div>
           </div>
-          <ol class="move-steps">
-            <li>Sites</li>
-            <li>What to copy</li>
-            <li aria-current="step">Check</li>
-            <li>Copy</li>
-          </ol>
-          <figcaption>Two sites, the statuses you want, a check of every match, then the copy.</figcaption>
-        </figure>
+          <p class="demo-status" role="status"></p>
+        </div>
       </section>
 
       <section class="split" id="library" aria-labelledby="library-title">
@@ -209,6 +212,6 @@
         </nav>
       </div>
     </footer>
-    <script src="site.js?v=5.0.1" defer></script>
+    <script src="site.js?v=5.0.2" defer></script>
   </body>
 </html>
