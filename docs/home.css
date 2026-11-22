@@ -192,6 +192,11 @@ main,
 
 /* The developer's notices, the same ones the extension shows. */
 
+.site-notice.warn {
+  background: var(--warn-wash);
+  color: var(--warn);
+  font-weight: 700;
+}
 .site-notice {
   max-width: none;
   margin: 0;
@@ -869,6 +874,67 @@ main,
 }
 .sites li a:hover {
   color: var(--accent);
+}
+/* Copy reading lists: the two sites and the page's four steps. */
+.move {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+.move-site {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 24px 12px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+  text-align: center;
+}
+.move-site img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.move-site span {
+  color: var(--ink-3);
+  font-size: 0.8125rem;
+}
+.move-arrow {
+  width: 40px;
+  color: var(--accent);
+}
+.move-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  font-size: 0.8125rem;
+  text-align: center;
+  color: var(--ink-3);
+}
+.move-steps li {
+  padding: 8px 4px;
+  border-bottom: 2px solid var(--rule-strong);
+  counter-increment: step;
+}
+.move-steps li::before {
+  content: counter(step) ". ";
+}
+.move-steps [aria-current] {
+  color: var(--ink);
+  font-weight: 700;
+  border-color: var(--accent);
+}
+.tag.new {
+  border-color: var(--accent);
+  color: var(--accent);
+  vertical-align: middle;
 }
 .tag {
   padding: 0 6px;

@@ -20,7 +20,7 @@ async function notices() {
   const file = await fetch(`${STATUS_SITE}/notices.json`, { cache: 'no-cache' }).then((r) => r.json());
   for (const n of Array.isArray(file?.notices) ? file.notices : []) {
     if (typeof n?.text !== 'string' || (n.until && !(Date.parse(n.until) > Date.now()))) continue;
-    const p = el('p', { class: 'site-notice' }, n.text);
+    const p = el('p', { class: n.kind === 'warn' ? 'site-notice warn' : 'site-notice' }, n.text);
     if (typeof n.link === 'string' && n.link.startsWith('https://')) p.append(' ', el('a', { href: n.link }, 'More'));
     slot.append(p);
   }
