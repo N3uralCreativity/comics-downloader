@@ -49,6 +49,7 @@
             <li><a href="#on-site">Download from the site’s page</a></li>
             <li><a href="#panel">Download from the side panel</a></li>
             <li><a href="#comix">Comix</a></li>
+            <li><a href="#extra-steps">Sites with an extra step</a></li>
             <li><a href="#downloads">The Downloads tab</a></li>
             <li><a href="#settings">Settings</a></li>
             <li><a href="#files">Files and reader apps</a></li>
@@ -203,9 +204,26 @@
         <section id="comix">
           <h2>Comix</h2>
           <p>
-            On Comix the extension adds nothing to the page; everything happens in the panel, one chapter at a time. Open the chapter, scroll
-            through it to the last page so the reader loads every image, then press <strong>Download this chapter</strong> in the panel.
+            On Comix the extension adds nothing to the page: everything happens in the panel, one chapter at a time. It saves what Comix’s
+            own reader has shown you, so the reader has to load every page first. Skip that and the download fails.
           </p>
+          <ol>
+            <li>Open the chapter you want on Comix. A series page can’t be saved, only an open chapter.</li>
+            <li>Scroll down to the very end of the chapter and wait until every page has finished loading: no loading animation left anywhere.</li>
+            <li>To go faster, drag the scroll bar on the right down to the bottom, then back up and down again, until every page shows.</li>
+            <li>Then press <strong>Download this chapter</strong> in the panel, and keep the chapter open in its tab until it has saved.</li>
+          </ol>
+          <p>If the panel says some pages come from an image server it doesn’t know, reload the chapter, scroll through it again and retry.</p>
+        </section>
+
+        <section id="extra-steps">
+          <h2>Sites with an extra step</h2>
+          <p>A few sites need something from you. The panel shows the same steps under <strong>How to download from …</strong>.</p>
+          <ul>
+            <li><strong>MangaDex:</strong> its pages get no buttons, so the chapter list is in the panel. Open a series, pick a group to get one version of each chapter, then tick chapters and download.</li>
+            <li><strong>Toonkotsu:</strong> pick a group, since most chapters come from several. After a number of chapters the site asks you to confirm you are human and the download pauses: confirm it on the site in your tab, then press <strong>Resume</strong> in the Downloads tab.</li>
+            <li><strong>XComic:</strong> open a title, then one of its sources (each language or uploader edition is its own source), and download from that source page.</li>
+          </ul>
         </section>
 
         <section id="downloads">
