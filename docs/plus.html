@@ -9,8 +9,9 @@
     <meta name="theme-color" content="#151819" />
     <link rel="canonical" href="https://n3uralcreativity.top/comics-downloader/plus.html" />
     <link rel="icon" type="image/png" href="assets/icon128.png" />
-    <link rel="stylesheet" href="tokens.css?v=5.0.2" />
-    <link rel="stylesheet" href="home.css?v=5.0.2" />
+    <link rel="stylesheet" href="tokens.css?v=5.0.4" />
+    <link rel="stylesheet" href="home.css?v=5.0.4" />
+    <link rel="stylesheet" href="lists-demo.css?v=5.0.4" />
   </head>
   <body>
     <header class="top">
@@ -51,8 +52,10 @@
             you are moving to, every status or only the ones you want, check what was found, and the extension adds the series for you.
             Open it from <strong>Copy reading lists</strong> in the Plus tab.
           </p>
+        </div>
+        <div>
           <ul class="ticks">
-            <li>25 sites, MangaDex, Weeb Central, MangaHub and Atsumaru among them, plus MyAnimeList files, which MyAnimeList, AniList and Kenmei export.</li>
+            <li>26 sites, MangaDex, Weeb Central, MangaHub and Atsumaru among them, plus MyAnimeList files, which MyAnimeList, AniList and Kenmei export.</li>
             <li>Statuses come along: Reading, Plan to read, Completed, On hold, Dropped and Re-reading, on sites that have them.</li>
             <li>A copy only adds. Nothing already on the target site is changed or removed.</li>
             <li>A series not found under its title is searched again under its other titles, looked up on AniList.</li>
@@ -61,23 +64,14 @@
             <li>It runs in your browser, through your own signed-in tabs. Nothing goes through the Plus server, and nothing is kept afterwards.</li>
           </ul>
         </div>
-        <div class="demo copy-demo" id="copy-demo" role="group" aria-label="A working model of Copy reading lists. Nothing is copied.">
-          <div class="demo-panel">
-            <div class="demo-head"><strong>Copy reading lists</strong><span>Try it: nothing is copied</span></div>
-            <ol class="move-steps">
-              <li aria-current="step">Sites</li>
-              <li>What to copy</li>
-              <li>Check</li>
-              <li>Copy</li>
-            </ol>
-            <div class="copy-body"><p class="copy-note">This demo needs JavaScript.</p></div>
-            <div class="demo-foot">
-              <button type="button" class="button" data-back hidden>Back</button>
-              <button type="button" class="button primary" data-next disabled>Read the list</button>
-            </div>
-          </div>
-          <p class="demo-status" role="status"></p>
+      </section>
+
+      <section class="lists-model" aria-label="Try Copy reading lists">
+        <div class="cd" id="copy-demo" role="group" aria-label="A working model of the extension's Copy reading lists page. Nothing is copied.">
+          <nav class="nav" aria-hidden="true"><button type="button" tabindex="-1">This tab</button><button type="button" tabindex="-1">Downloads</button><button type="button" tabindex="-1">Sites</button><button type="button" tabindex="-1">Settings</button><button type="button" tabindex="-1">Plus</button><button type="button" tabindex="-1" aria-current="page">Lists</button></nav>
+          <div class="view"><noscript><p class="help" style="padding: 14px">This working model needs JavaScript.</p></noscript></div>
         </div>
+        <p class="small">A working model of the extension’s page, with a sample list. Pick two sites and go: nothing is copied.</p>
       </section>
 
       <section class="split" id="library" aria-labelledby="library-title">
@@ -212,6 +206,7 @@
         </nav>
       </div>
     </footer>
-    <script src="site.js?v=5.0.2" defer></script>
+    <script src="site.js?v=5.0.4" defer></script>
+    <script src="lists-demo.js?v=5.0.4" defer></script>
   </body>
 </html>
