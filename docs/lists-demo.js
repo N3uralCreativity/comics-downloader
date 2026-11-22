@@ -42,7 +42,25 @@
   const LIGHT_ICONS = new Set(['mangatown']);
 
   // A sample list: status, and how the target site finds each series (by tracker id, by title only,
-  // not at all, or already there). Title-only matches carry the target's own title.
+  // not at all, or already there). Title-only matches carry the target's own title. Covers come from
+  // AniList's image server, as the extension shows each site's own.
+  const COVER = 'https://s4.anilist.co/file/anilistcdn/media/manga/cover/medium/';
+  const COVERS = {
+    'Solo Leveling': 'bx105398-b673Vt5ZSuz3.jpg',
+    'Kagurabachi': 'bx169355-5pqzh1Wb4NOQ.png',
+    'Dandadan': 'bx132029-prGF4gePdSKv.jpg',
+    'One Piece': 'bx30013-BeslEMqiPhlk.jpg',
+    'Sousou no Frieren': 'bx118586-CXKgWikBFQgS.jpg',
+    'Blue Lock': 'bx106130-yPNeuSu75ey1.jpg',
+    'Omniscient Reader': 'bx119257-Pi21aq3ey9GG.jpg',
+    'The Infinite Mage': 'bx159930-qK1P4BNQL0zG.jpg',
+    'Chainsaw Man': 'bx105778-euxXZEIfDY2u.png',
+    'Kaiju No. 8': 'bx120760-MtXvMgujLBpe.jpg',
+    'Tokyo Ghoul': 'bx63327-glC9cDxYBja9.png',
+    'Berserk': 'bx30002-Cul4OeN7bYtn.jpg',
+    'Vinland Saga': 'bx30642-0mjRDkf4THpo.jpg',
+    'A Returner’s Magic Should Be Special': 'bx105393-oiHumQoBGKG5.jpg',
+  };
   const LIST = [
     ['Solo Leveling', 'completed', 'found'],
     ['Kagurabachi', 'reading', 'found'],
@@ -58,7 +76,7 @@
     ['Berserk', 'onhold', 'found'],
     ['Vinland Saga', 'reading', 'found'],
     ['A Returner’s Magic Should Be Special', 'planned', 'missing', []],
-  ].map(([title, status, state, extra]) => ({ title, status, state, found: typeof extra === 'string' ? extra : undefined, options: Array.isArray(extra) ? extra : [] }));
+  ].map(([title, status, state, extra]) => ({ title, status, state, cover: COVER + COVERS[title], found: typeof extra === 'string' ? extra : undefined, options: Array.isArray(extra) ? extra : [] }));
 
   const STATUSES = ['reading', 'rereading', 'planned', 'onhold', 'completed', 'dropped'];
   const STATUS = { reading: 'Reading', rereading: 'Re-reading', planned: 'Plan to read', onhold: 'On hold', completed: 'Completed', dropped: 'Dropped' };
@@ -170,6 +188,10 @@
     ];
   }
 
+  // The extension's Cover: the series' image, or its first letter on screentone when it does not load.
+  const letter = (e) => h('span', { class: 'cover letter', 'aria-hidden': 'true' }, e.title.slice(0, 1).toUpperCase());
+  const cover = (e) => h('img', { class: 'cover', src: e.cover, alt: '', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer', onerror: (ev) => ev.currentTarget.replaceWith(letter(e)) });
+
   function choose() {
     const to = site(s.to);
     const set = (indexes, on) => {
@@ -207,7 +229,7 @@
           const on = s.picked.has(i);
           return h('label', { class: 'series-card', 'data-on': on },
             h('input', { type: 'checkbox', checked: on, onchange: (ev) => set([i], ev.currentTarget.checked) }),
-            h('span', { class: 'cover letter', 'aria-hidden': 'true' }, e.title.slice(0, 1).toUpperCase()),
+            cover(e),
             h('span', { class: 'title' }, e.title), h('span', { class: 'status' }, STATUS[e.status]));
         }),
         !visible.length && h('p', { class: 'help' }, 'No series by that name.')),
