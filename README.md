@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/assets/icon128.png" width="128" height="128" alt="Comics Downloader logo">
+
 # Comics Downloader
 
 ### Comix Downloader 5.0 is out, and it's now Comics Downloader.
