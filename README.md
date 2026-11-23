@@ -6,10 +6,10 @@
 
 ### Comix Downloader 5.0 is out, and it's now Comics Downloader.
 
-<a href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/chrome-dark.png"><img src="assets/readme/buttons/chrome-light.png" width="362" height="56" alt="Add to Chrome: Chrome Web Store, also for Edge, Brave and Opera"></picture></a>&nbsp;&nbsp;
-<a href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/firefox-dark.png"><img src="assets/readme/buttons/firefox-light.png" width="284" height="56" alt="Add to Firefox: Firefox Add-ons, Firefox 140 or newer"></picture></a>
+<a href="https://chromewebstore.google.com/detail/nojjjpmicodkodnnllbdolpglhlclpdp"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/chrome-dark.png?v=2"><img src="assets/readme/buttons/chrome-light.png" width="362" height="56" alt="Add to Chrome: Chrome Web Store, also for Edge, Brave and Opera"></picture></a>&nbsp;&nbsp;
+<a href="https://addons.mozilla.org/en-US/firefox/addon/comix-chapter-downloader/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/firefox-dark.png?v=2"><img src="assets/readme/buttons/firefox-light.png" width="284" height="56" alt="Add to Firefox: Firefox Add-ons, Firefox 140 or newer"></picture></a>
 
-<a href="https://n3uralcreativity.top/comics-downloader/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/site-dark.png"><img src="assets/readme/buttons/site-light.png" width="223" height="56" alt="Visit the site: n3uralcreativity.top"></picture></a>
+<a href="https://n3uralcreativity.top/comics-downloader/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/site-dark.png?v=2"><img src="assets/readme/buttons/site-light.png" width="223" height="56" alt="Visit the site: n3uralcreativity.top"></picture></a>
 
 <a href="https://n3uralcreativity.top/comics-downloader/">
   <img src="assets/readme/comics-downloader-promo.gif" width="800" alt="Comics Downloader promo: download manga from the sites you already read, 42 sites in one extension">
@@ -43,7 +43,7 @@ The full list is in the [changelog](https://n3uralcreativity.top/comics-download
 
 Comics Downloader 5's code is private. The open-source code of Comix Downloader v4 is on the **[`v4` branch](https://github.com/N3uralCreativity/comics-downloader/tree/v4)**, still MIT licensed. This `master` branch holds this page and the website.
 
-<a href="https://github.com/N3uralCreativity/comics-downloader/tree/v4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/v4-code-dark.png"><img src="assets/readme/buttons/v4-code-light.png" width="255" height="56" alt="Browse the v4 code: v4 branch, MIT licence"></picture></a>
+<a href="https://github.com/N3uralCreativity/comics-downloader/tree/v4"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/buttons/v4-code-dark.png?v=2"><img src="assets/readme/buttons/v4-code-light.png" width="255" height="56" alt="Browse the v4 code: v4 branch, MIT licence"></picture></a>
 
 ### Something not working?
 
